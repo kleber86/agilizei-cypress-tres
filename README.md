@@ -12,10 +12,10 @@
 
 #### Semana Agilizei 3.0 - Dia 01 - Abertura do evento e primeiros passos com o Cypress
 
- > Instalação do Node.
- > Configuração do Vscode e plugins.
- > Instalação do Cypress.
- > Configurando o primeiro projeto em Cypress.
+ > 1. Instalação do Node.
+ > 2. Configuração do Vscode e plugins.
+ > 3. Instalação do Cypress.
+ > 4. Configurando o primeiro projeto em Cypress.
 
 #### Semana Agilizei 3.0 - Dia 02 - Utilizando Cypress na prática
 > Mapeando os objetos do site.
