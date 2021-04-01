@@ -1,11 +1,13 @@
 /// <reference types="cypress" />
 
-context('Suite de Testes', ()=> {
+context('Suite de Testes', () => {
 
-
-    it('Cadastrar entradas', ()=>{
+    beforeEach(() => {
         cy.visit('https://devfinance-agilizei.netlify.app')
         cy.get('#data-table tbody tr').should('have.length', 0)
+    });
+
+    it('Cadastrar entradas', () => {
         cy.get('#transaction .new').click()
         cy.get('#description').type('Mesada')
         cy.get('[name=amount]').type(12)
@@ -14,10 +16,8 @@ context('Suite de Testes', ()=> {
 
         cy.get('#data-table tbody tr').should('have.length', 1)
     })
- 
-    it('Cadastrar saidas', ()=> {
-        cy.visit('https://devfinance-agilizei.netlify.app')
-        cy.get('#data-table tbody tr').should('have.length', 0)
+
+    it('Cadastrar saidas', () => {
         cy.get('#transaction .new').click()
         cy.get('#description').type('Luz')
         cy.get('#amount').type(-100)
@@ -25,5 +25,42 @@ context('Suite de Testes', ()=> {
         cy.get('button').contains('Salvar').click()
 
         cy.get('#data-table tbody tr').should('have.length', 1)
-    }) 
+    })
+
+    it('Remover entradas e saídas', () => {
+        const entrada = 'Mesada'
+        const saida = 'KinderOvo'
+        // Cadastro entrada
+        cy.get('#transaction .new').click()
+        cy.get('#description').type(entrada)
+        cy.get('#amount').type(101)
+        cy.get('#date').type('2021-04-01')
+        cy.get('button').contains('Salvar').click()
+
+        // Cadastro saída
+        cy.get('#transaction .new').click()
+        cy.get('#description').type(saida)
+        cy.get('#amount').type(-40)
+        cy.get('#date').type('2021-04-01')
+        cy.get('button').contains('Salvar').click()
+
+        // Estrategia 01
+        // Exclusão da entrada
+        cy.get('td.description')
+            .contains(entrada)
+            .parent()
+            .find('img[onclick*=remove]')
+            .click()
+
+        // Estrategia 02
+        // Exclusão da saída
+        cy.get('td.description')
+            .contains(saida)
+            .siblings()
+            .children('img[onclick*=remove]')
+            .click()
+
+        cy.get('#data-table tbody tr').should('have.length', 0)
+
+    })
 })
