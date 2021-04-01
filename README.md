@@ -10,7 +10,8 @@
 
 ### :memo: Modulos
 
-#### Semana Agilizei 3.0 - Abertura do evento e primeiros passos com o Cypress
+#### Semana Agilizei 3.0 - Dia 01 - Abertura do evento e primeiros passos com o Cypress
+
 > Instalação do Node
 > Configuração do Vscode e plugins
 > Instalação do Cypress
