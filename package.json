@@ -4,7 +4,8 @@
   "description": "Semana Agilizei 3.0 - Cypress",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "cypress:run:mobile": "npx cypress run --config viewportWidth=411,viewportHeight=823",
+    "cypress:run": "npx cypress run"
   },
   "keywords": [],
   "author": "",
