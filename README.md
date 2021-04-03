@@ -23,10 +23,14 @@
 > 3. Criando os comandos de saída.
 > 4. Adicionando hooks.
 > 5. Validando as entradas e saídas.
-> 6. Testes com responsividade
-> 7. Testes rodando em headless gerando videos
+> 6. Testes com responsividade.
+> 7. Testes rodando em headless gerando videos.
 
 #### Semana Agilizei 3.0 - Dia 03 - Evoluindo a estrutura
+> 1. Cenário mais complexo.
+> 2. Usando o comando each.
+> 3. Usando o comando invoke.
+> 4. Valiando as entradas e saídas com o total.
 #### Semana Agilizei 3.0 - Dia 04 - Cypress Dashboard e Github Actions
 
 
