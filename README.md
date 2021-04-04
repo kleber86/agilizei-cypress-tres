@@ -4,7 +4,7 @@
 </div>
 
 <div align="center">
-    <img src="assets/site.gif">
+    <img src="cypress.gif">
 </div>
 
 
@@ -34,6 +34,13 @@
 > 5. Adicionando valores diretamente no localstorage
 
 #### Semana Agilizei 3.0 - Dia 04 - Cypress Dashboard e Github Actions
+> 1. Conhecendo e conectando ao Cypress Dashboard
+> 2. Relatorios do Cypress Dashboard
+> 3. Conhecendo o Github Actions
 
 
+### :memo: Tecnologias
+> 1. Javascript
+> 2. Cypress
+> 2. Cypress Dashboard
 <hr>
