@@ -1,12 +1,16 @@
 /// <reference types="cypress" />
 
-import { format } from '../support/utils'
+import { format, prepareLocalStorage } from '../support/utils'
 
 context('Suite de Testes', () => {
 
     beforeEach(() => {
-        cy.visit('https://devfinance-agilizei.netlify.app')
-        cy.get('#data-table tbody tr').should('have.length', 0)
+        cy.visit('https://devfinance-agilizei.netlify.app',{
+            onBeforeLoad: (win) => {
+                prepareLocalStorage(win)
+            }
+        })
+        
     });
 
     it('Cadastrar entradas', () => {
@@ -16,7 +20,7 @@ context('Suite de Testes', () => {
         cy.get('[type=date]').type('2021-03-21')
         cy.get('button').contains('Salvar').click()
 
-        cy.get('#data-table tbody tr').should('have.length', 1)
+        cy.get('#data-table tbody tr').should('have.length', 3)
     })
 
     it('Cadastrar saidas', () => {
@@ -26,30 +30,15 @@ context('Suite de Testes', () => {
         cy.get('#date').type('2021-04-01')
         cy.get('button').contains('Salvar').click()
 
-        cy.get('#data-table tbody tr').should('have.length', 1)
+        cy.get('#data-table tbody tr').should('have.length', 3)
     })
 
     it('Remover entradas e saídas', () => {
-        const entrada = 'Mesada'
-        const saida = 'KinderOvo'
-        // Cadastro entrada
-        cy.get('#transaction .new').click()
-        cy.get('#description').type(entrada)
-        cy.get('#amount').type(101)
-        cy.get('#date').type('2021-04-01')
-        cy.get('button').contains('Salvar').click()
-
-        // Cadastro saída
-        cy.get('#transaction .new').click()
-        cy.get('#description').type(saida)
-        cy.get('#amount').type(-40)
-        cy.get('#date').type('2021-04-01')
-        cy.get('button').contains('Salvar').click()
-
+        
         // Estrategia 01
         // Exclusão da entrada
         cy.get('td.description')
-            .contains(entrada)
+            .contains('Mesada')
             .parent()
             .find('img[onclick*=remove]')
             .click()
@@ -57,7 +46,7 @@ context('Suite de Testes', () => {
         // Estrategia 02
         // Exclusão da saída
         cy.get('td.description')
-            .contains(saida)
+            .contains('Suco Kapo')
             .siblings()
             .children('img[onclick*=remove]')
             .click()
@@ -66,28 +55,7 @@ context('Suite de Testes', () => {
 
     })
 
-    it.only('Validar saldo com dirvesas transações', ()=>{
-        // Capturar as linhas com as transações
-        // Formatar esses valores das linhas
-        // Capturar o texto do total
-        // Comprar o somatorio de entradas e saidas com o total
-        const entrada = 'Mesada'
-        const saida = 'KinderOvo'
-        // Cadastro entrada
-        cy.get('#transaction .new').click()
-        cy.get('#description').type(entrada)
-        cy.get('#amount').type(101)
-        cy.get('#date').type('2021-04-01')
-        cy.get('button').contains('Salvar').click()
-
-        // Cadastro saída
-        cy.get('#transaction .new').click()
-        cy.get('#description').type(saida)
-        cy.get('#amount').type(-40)
-        cy.get('#date').type('2021-04-01')
-        cy.get('button').contains('Salvar').click()
-        
-
+    it('Validar saldo com dirvesas transações', ()=>{   
         let incomes = 0
         let expenses = 0
         cy.get('#data-table tbody tr')
@@ -98,10 +66,6 @@ context('Suite de Testes', () => {
                     }else{
                         incomes = incomes + format(text)
                     }
-
-                    cy.log('INCOMES:' + incomes)
-                    cy.log('EXPENSES: ' + expenses)
-
                 })
           })
 

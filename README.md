@@ -31,6 +31,8 @@
 > 2. Usando o comando each.
 > 3. Usando o comando invoke.
 > 4. Valiando as entradas e saídas com o total.
+> 5. Adicionando valores diretamente no localstorage
+
 #### Semana Agilizei 3.0 - Dia 04 - Cypress Dashboard e Github Actions
 
 
