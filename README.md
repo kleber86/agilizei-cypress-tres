@@ -41,9 +41,9 @@
 > 5. Adicionando Actions secrets no Github 
 
 ### :memo: Tecnologias
-> 1. Javascript
-> 2. Cypress
-> 3. Cypress Dashboard
-> 4. Actions secrets
+Javascript
+Cypress
+Cypress Dashboard
+Actions secrets
 
 <hr>
