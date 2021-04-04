@@ -37,10 +37,13 @@
 > 1. Conhecendo e conectando ao Cypress Dashboard
 > 2. Relatorios do Cypress Dashboard
 > 3. Conhecendo o Github Actions
-
+> 4. Rodando os testes no Github
+> 5. Adicionando Actions secrets no Github 
 
 ### :memo: Tecnologias
 > 1. Javascript
 > 2. Cypress
-> 2. Cypress Dashboard
+> 3. Cypress Dashboard
+> 4. Actions secrets
+
 <hr>
